@@ -32,6 +32,26 @@ describe('metalsmith-collections', function(){
       });
   });
 
+  it('should not add articles to a collection twice', function(done){
+    var metalsmith = Metalsmith('test/fixtures/pattern');
+    metalsmith
+      .use(collections({
+        articles: {
+          pattern: '*.md'
+        }
+      }))
+      .use(collections({
+        articles: {
+          pattern: '*.md'
+        }
+      }))
+      .build(function(err){
+        if (err) return done(err);
+        assert.equal(3, metalsmith.metadata().articles.length);
+        done();
+      });
+  });
+
   it('should take a pattern shorthand string', function(done){
     var metalsmith = Metalsmith('test/fixtures/pattern');
     metalsmith
