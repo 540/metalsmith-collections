@@ -2,6 +2,8 @@
 
 A [Metalsmith](https://github.com/segmentio/metalsmith) plugin that lets you group files together into an ordered collection, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them.
 
+## Forked by 540 to use unmerged collections with Browsersync fix.
+
 ## Features
 
   - can match files by `collection` metadata
